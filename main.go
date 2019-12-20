@@ -35,8 +35,8 @@ func invert(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, response)
 }
 
-func flatern(w http.ResponseWriter, r *http.Request) {
-	response := "flatern response"
+func flatten(w http.ResponseWriter, r *http.Request) {
+	response := "flatten response"
 	fmt.Fprint(w, response)
 }
 
@@ -53,7 +53,7 @@ func multiply(w http.ResponseWriter, r *http.Request) {
 func main() {
 	http.HandleFunc("/echo", echo)
 	http.HandleFunc("/invert", invert)
-	http.HandleFunc("/flatern", flatern)
+	http.HandleFunc("/flatten", flatten)
 	http.HandleFunc("/sum", sum)
 	http.HandleFunc("/multiply", multiply)
 
