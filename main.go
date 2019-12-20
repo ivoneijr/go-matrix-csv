@@ -31,21 +31,25 @@ func echo(w http.ResponseWriter, r *http.Request) {
 }
 
 func invert(w http.ResponseWriter, r *http.Request) {
+	// TODO: should implement
 	response := "invert response"
 	fmt.Fprint(w, response)
 }
 
 func flatten(w http.ResponseWriter, r *http.Request) {
+	// TODO: should implement
 	response := "flatten response"
 	fmt.Fprint(w, response)
 }
 
 func sum(w http.ResponseWriter, r *http.Request) {
+	// TODO: should implement
 	response := "sum response"
 	fmt.Fprint(w, response)
 }
 
 func multiply(w http.ResponseWriter, r *http.Request) {
+	// TODO: should implement
 	response := "multiply response"
 	fmt.Fprint(w, response)
 }
