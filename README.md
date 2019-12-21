@@ -53,10 +53,10 @@ The input file to these functions is a matrix, of any dimension where the number
 Run web server
 
 ```
-go run main.go
+go run src/main.go
 ```
 
-Send request
+Send request, CSV_PATH is your local csv file path
 
 ```
 curl -F 'file={CSV_PATH}' "localhost:8080/echo"
