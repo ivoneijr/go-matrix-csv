@@ -1,6 +1,7 @@
 package routes
 
 import (
+	"bytes"
 	"fmt"
 	"net/http"
 
@@ -31,15 +32,15 @@ func Flatten(w http.ResponseWriter, r *http.Request) {
 	records, _ := helpers.GetRecords(w, r)
 	flatted := makeFlat(records)
 
-	var response string
+	var buffer bytes.Buffer
 
 	for n := range flatted {
 		if len(flatted) == 0 {
-			response += fmt.Sprintf("%s", n)
+			buffer.WriteString(n)
 		} else {
-			response += fmt.Sprintf("%s,", n)
+			buffer.WriteString(fmt.Sprintf("%s,", n))
 		}
 	}
 
-	fmt.Fprint(w, response)
+	fmt.Fprint(w, buffer.String())
 }
