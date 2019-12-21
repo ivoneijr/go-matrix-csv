@@ -9,6 +9,7 @@ import (
 
 func makeFlat(matrix [][]string) <-chan string {
 	c := make(chan string, 9)
+	defer close(c)
 
 	for _, row := range matrix {
 		// When I use it, I receive ERROR: "panic: send on closed channel"
@@ -21,7 +22,6 @@ func makeFlat(matrix [][]string) <-chan string {
 			c <- column
 		}
 	}
-	close(c)
 
 	return c
 }
