@@ -77,9 +77,6 @@ func GetMatrix(
 	case "INVERT":
 		return nil, transpose(matrix)
 
-	case "ECHO":
-		return nil, matrix
-
 	default:
 		return nil, matrix
 	}
