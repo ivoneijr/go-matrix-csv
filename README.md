@@ -64,6 +64,8 @@ The input file to these functions is a matrix, of any dimension where the number
 ##### Run web server
 
 ```
+git clone https://github.com/ivoneijr/go-matrix-csv.git
+cd go-matrix-csv
 go run src/*.go
 ```
 

@@ -23,7 +23,7 @@ func Testtranspose(t *testing.T) {
 
 	fmt.Println(transposed)
 
-	if reflect.DeepEqual(expected, transposed) {
+	if !reflect.DeepEqual(expected, transposed) {
 		t.ErrorF("transponsed [][]string does not match with the expected")
 	}
 }
