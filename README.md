@@ -1,8 +1,8 @@
 # League Backend Challenge
 
-In main.go you will find a basic web server written in GoLang. It accepts some requests _/echo_, _/invert_, _/flatten_, _/sum_, _/multiply_ to perform the following operations
+In `src/main.go` you will find a basic web server written in GoLang. It accepts some requests to perform the following operations
 
-Given an uploaded csv file
+#### Given an uploaded csv file
 
 ```
 1,2,3
@@ -10,53 +10,66 @@ Given an uploaded csv file
 7,8,9
 ```
 
-1. Echo (given)
+####1. Echo (given) `/echo`
 
-   - Return the matrix as a string in matrix format.
+- Return the matrix as a string in matrix format.
 
-   ```
-   // Expected output
-   1,2,3
-   4,5,6
-   7,8,9
-   ```
+```
+// Expected output
+1,2,3
+4,5,6
+7,8,9
+```
 
-2. Invert
-   - Return the matrix as a string in matrix format where the columns and rows are inverted
-   ```
-   // Expected output
-   1,4,7
-   2,5,8
-   3,6,9
-   ```
-3. Flatten
-   - Return the matrix as a 1 line string, with values separated by commas.
-   ```
-   // Expected output
-   1,2,3,4,5,6,7,8,9
-   ```
-4. Sum
-   - Return the sum of the integers in the matrix
-   ```
-   // Expected output
-   45
-   ```
-5. Multiply
-   - Return the product of the integers in the matrix
-   ```
-   // Expected output
-   362880
-   ```
+####2. Invert `/invert`
+
+- Return the matrix as a string in matrix format where the columns and rows are inverted
+
+```
+// Expected output
+1,4,7
+2,5,8
+3,6,9
+```
+
+####3. Flatten `/flatten`
+
+- Return the matrix as a 1 line string, with values separated by commas.
+
+```
+// Expected output
+1,2,3,4,5,6,7,8,9
+```
+
+####4. Sum `/sum`
+
+- Return the sum of the integers in the matrix
+
+```
+// Expected output
+45
+```
+
+####5. Multiply `/multiply`
+
+- Return the product of the integers in the matrix
+
+```
+// Expected output
+362880
+```
 
 The input file to these functions is a matrix, of any dimension where the number of rows are equal to the number of columns (square). Each value is an integer, and there is no header row. matrix.csv is example valid input.
 
-Run web server
+#####Run web server
 
 ```
 go run src/*.go
 ```
 
-Send request, CSV_PATH is your local csv file path
+##### cURL tests
+
+Request examples:
 
 ```
 curl -F 'file={CSV_PATH}' "localhost:8080/echo"
@@ -65,6 +78,8 @@ curl -F 'file={CSV_PATH}' "localhost:8080/flatern"
 curl -F 'file={CSV_PATH}' "localhost:8080/sum"
 curl -F 'file={CSV_PATH}' "localhost:8080/multiply"
 ```
+
+`CSV_PATH` is your local csv file path
 
 ## What we're looking for
 
