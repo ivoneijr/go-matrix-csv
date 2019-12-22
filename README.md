@@ -10,7 +10,7 @@ In `src/main.go` you will find a basic web server written in GoLang. It accepts 
 7,8,9
 ```
 
-####1. Echo (given) `/echo`
+#### 1. Echo (given) `/echo`
 
 - Return the matrix as a string in matrix format.
 
@@ -21,7 +21,7 @@ In `src/main.go` you will find a basic web server written in GoLang. It accepts 
 7,8,9
 ```
 
-####2. Invert `/invert`
+#### 2. Invert `/invert`
 
 - Return the matrix as a string in matrix format where the columns and rows are inverted
 
@@ -32,7 +32,7 @@ In `src/main.go` you will find a basic web server written in GoLang. It accepts 
 3,6,9
 ```
 
-####3. Flatten `/flatten`
+#### 3. Flatten `/flatten`
 
 - Return the matrix as a 1 line string, with values separated by commas.
 
@@ -41,7 +41,7 @@ In `src/main.go` you will find a basic web server written in GoLang. It accepts 
 1,2,3,4,5,6,7,8,9
 ```
 
-####4. Sum `/sum`
+#### 4. Sum `/sum`
 
 - Return the sum of the integers in the matrix
 
@@ -50,7 +50,7 @@ In `src/main.go` you will find a basic web server written in GoLang. It accepts 
 45
 ```
 
-####5. Multiply `/multiply`
+#### 5. Multiply `/multiply`
 
 - Return the product of the integers in the matrix
 
@@ -81,7 +81,7 @@ curl -F 'file={CSV_PATH}' "localhost:8080/multiply"
 
 `CSV_PATH` is your local csv file path
 
-## What we're looking for
+### What we're looking for
 
 - The solution runs
 - The solution performs all cases correctly
