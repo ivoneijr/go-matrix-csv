@@ -7,6 +7,7 @@ import (
 	"./routes"
 )
 
+// main function to handle routes
 func main() {
 	http.HandleFunc("/echo", routes.Echo)
 	http.HandleFunc("/invert", routes.Invert)

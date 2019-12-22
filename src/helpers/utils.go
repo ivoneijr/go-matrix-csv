@@ -7,6 +7,7 @@ import (
 	"strconv"
 )
 
+// transpose return a reversed [][]string
 func transpose(slice [][]string) [][]string {
 	xl := len(slice[0])
 	yl := len(slice)
@@ -25,6 +26,7 @@ func transpose(slice [][]string) [][]string {
 	return result
 }
 
+// matrixToChannel
 func matrixToChannel(matrix [][]string) <-chan int {
 	ch := make(chan int, 1)
 
@@ -42,6 +44,7 @@ func matrixToChannel(matrix [][]string) <-chan int {
 	return ch
 }
 
+// getRecords get and parse csv file (form-data) to [][]string
 func getRecords(w http.ResponseWriter, request *http.Request) ([][]string, error) {
 	file, _, err := request.FormFile("file")
 	defer file.Close()
@@ -61,7 +64,7 @@ func getRecords(w http.ResponseWriter, request *http.Request) ([][]string, error
 	return records, nil
 }
 
-// GetMatrix return (<-chan int, [][]string) depending by kind param
+// GetMatrix return (<-chan int, [][]string) depending on the kind(type) param
 func GetMatrix(
 	kind string,
 	responseWriter http.ResponseWriter,
