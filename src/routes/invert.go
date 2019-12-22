@@ -25,8 +25,8 @@ func transpose(slice [][]string) [][]string {
 
 // Invert route to matrix as a string in matrix format where the columns and rows are inverted
 func Invert(w http.ResponseWriter, request *http.Request) {
-	records, _ := helpers.GetRecords(w, request)
-	transposed := transpose(records)
+	matrix, _ := helpers.GetRecords(w, request)
+	transposed := transpose(matrix)
 	var response string
 
 	for _, row := range transposed {

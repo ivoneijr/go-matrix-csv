@@ -53,7 +53,7 @@ The input file to these functions is a matrix, of any dimension where the number
 Run web server
 
 ```
-go run src/main.go
+go run src/*.go
 ```
 
 Send request, CSV_PATH is your local csv file path
