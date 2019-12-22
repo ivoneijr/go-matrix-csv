@@ -9,8 +9,8 @@ import (
 )
 
 // Echo route to matrix as a string in matrix format
-func Echo(w http.ResponseWriter, r *http.Request) {
-	records, _ := helpers.GetRecords(w, r)
+func Echo(w http.ResponseWriter, request *http.Request) {
+	records, _ := helpers.GetRecords(w, request)
 	var response string
 
 	for _, row := range records {

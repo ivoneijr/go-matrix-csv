@@ -10,8 +10,8 @@ import (
 )
 
 // Flatten route to matrix as a 1 line string, with values separated by commas.
-func Flatten(w http.ResponseWriter, r *http.Request) {
-	matrix, _ := helpers.GetRecords(w, r)
+func Flatten(w http.ResponseWriter, request *http.Request) {
+	matrix, _ := helpers.GetRecords(w, request)
 	flatted := helpers.MatrixToChannel(matrix)
 	var buffer bytes.Buffer
 

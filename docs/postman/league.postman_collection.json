@@ -1,0 +1,130 @@
+{
+  "info": {
+    "_postman_id": "6e54a206-2a2a-4c5a-ac09-0ef9f110a22c",
+    "name": "ecore-league",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "echo",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "src": "/Users/ivoneijr/projects/golang/golang-labs/league-test/matrix.csv"
+            }
+          ]
+        },
+        "url": {
+          "raw": "localhost:8080/echo",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["echo"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "flatten",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "src": "/Users/ivoneijr/projects/golang/league-test/matrix.csv"
+            }
+          ]
+        },
+        "url": {
+          "raw": "localhost:8080/flatten",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["flatten"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "sum",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "src": "/Users/ivoneijr/projects/golang/league-test/matrix.csv"
+            }
+          ]
+        },
+        "url": {
+          "raw": "localhost:8080/sum",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["sum"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "multiply",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "src": "/Users/ivoneijr/projects/golang/league-test/matrix.csv"
+            }
+          ]
+        },
+        "url": {
+          "raw": "localhost:8080/multiply",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["multiply"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "invert",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "src": "/Users/ivoneijr/projects/golang/league-test/matrix.csv"
+            }
+          ]
+        },
+        "url": {
+          "raw": "localhost:8080/invert",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["invert"]
+        }
+      },
+      "response": []
+    }
+  ],
+  "protocolProfileBehavior": {}
+}
