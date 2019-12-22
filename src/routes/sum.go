@@ -8,14 +8,13 @@ import (
 )
 
 // Sum Route to sum of the integers in the matrix
-func Sum(w http.ResponseWriter, request *http.Request) {
-	matrix, _ := helpers.GetRecords(w, request)
-	flatted := helpers.MatrixToChannel(matrix)
+func Sum(responseWriter http.ResponseWriter, request *http.Request) {
+	matrix, _ := helpers.GetMatrix("SUM", responseWriter, request)
 
 	count := 0
-	for n := range flatted {
+	for n := range matrix {
 		count += n
 	}
 
-	fmt.Fprint(w, count)
+	fmt.Fprint(responseWriter, count)
 }

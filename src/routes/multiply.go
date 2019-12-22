@@ -8,14 +8,13 @@ import (
 )
 
 // Multiply route for product of the integers in the matrix
-func Multiply(w http.ResponseWriter, request *http.Request) {
-	matrix, _ := helpers.GetRecords(w, request)
-	flatted := helpers.MatrixToChannel(matrix)
+func Multiply(responseWriter http.ResponseWriter, request *http.Request) {
+	matrix, _ := helpers.GetMatrix("MULTIPLY", responseWriter, request)
 
 	count := 1
-	for n := range flatted {
+	for n := range matrix {
 		count *= n
 	}
 
-	fmt.Fprint(w, count)
+	fmt.Fprint(responseWriter, count)
 }

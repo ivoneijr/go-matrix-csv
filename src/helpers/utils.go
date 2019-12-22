@@ -7,8 +7,25 @@ import (
 	"strconv"
 )
 
-// MatrixToChannel convert matrix in to int channel
-func MatrixToChannel(matrix [][]string) <-chan int {
+func transpose(slice [][]string) [][]string {
+	xl := len(slice[0])
+	yl := len(slice)
+	result := make([][]string, xl)
+
+	for i := range result {
+		result[i] = make([]string, yl)
+	}
+
+	for i := 0; i < xl; i++ {
+		for j := 0; j < yl; j++ {
+			result[i][j] = slice[j][i]
+		}
+	}
+
+	return result
+}
+
+func matrixToChannel(matrix [][]string) <-chan int {
 	ch := make(chan int, 1)
 
 	go func() {
@@ -25,8 +42,7 @@ func MatrixToChannel(matrix [][]string) <-chan int {
 	return ch
 }
 
-// GetRecords get matrix [][]string from csv
-func GetRecords(w http.ResponseWriter, request *http.Request) ([][]string, error) {
+func getRecords(w http.ResponseWriter, request *http.Request) ([][]string, error) {
 	file, _, err := request.FormFile("file")
 	defer file.Close()
 
@@ -43,4 +59,28 @@ func GetRecords(w http.ResponseWriter, request *http.Request) ([][]string, error
 	}
 
 	return records, nil
+}
+
+// GetMatrix return (<-chan int, [][]string) depending by kind param
+func GetMatrix(
+	kind string,
+	responseWriter http.ResponseWriter,
+	request *http.Request,
+) (<-chan int, [][]string) {
+	matrix, _ := getRecords(responseWriter, request)
+
+	switch kind {
+
+	case "SUM", "FLATTEN", "MULTIPLY":
+		return matrixToChannel(matrix), nil
+
+	case "INVERT":
+		return nil, transpose(matrix)
+
+	case "ECHO":
+		return nil, matrix
+
+	default:
+		return nil, matrix
+	}
 }

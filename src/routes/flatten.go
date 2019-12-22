@@ -10,16 +10,15 @@ import (
 )
 
 // Flatten route to matrix as a 1 line string, with values separated by commas.
-func Flatten(w http.ResponseWriter, request *http.Request) {
-	matrix, _ := helpers.GetRecords(w, request)
-	flatted := helpers.MatrixToChannel(matrix)
+func Flatten(responseWriter http.ResponseWriter, request *http.Request) {
+	matrix, _ := helpers.GetMatrix("FLATTEN", responseWriter, request)
 	var buffer bytes.Buffer
 
-	for n := range flatted {
+	for n := range matrix {
 		buffer.WriteString(fmt.Sprintf("%d,", n))
 	}
 
 	response := strings.TrimSuffix(buffer.String(), ",")
 
-	fmt.Fprint(w, response)
+	fmt.Fprint(responseWriter, response)
 }
