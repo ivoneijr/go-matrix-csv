@@ -8,7 +8,7 @@ import (
 	"../helpers"
 )
 
-// Echo route to matrix as a string in matrix format
+// Echo route to echo matrix as a string
 func Echo(responseWriter http.ResponseWriter, request *http.Request) {
 	_, matrix := helpers.GetMatrix("ECHO", responseWriter, request)
 	var response string

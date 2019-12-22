@@ -7,7 +7,7 @@ import (
 	"../helpers"
 )
 
-// Multiply route for product of the integers in the matrix
+// Multiply route to get a product of the integers in the matrix
 func Multiply(responseWriter http.ResponseWriter, request *http.Request) {
 	matrix, _ := helpers.GetMatrix("MULTIPLY", responseWriter, request)
 

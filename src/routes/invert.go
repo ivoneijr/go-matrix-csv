@@ -8,7 +8,7 @@ import (
 	"../helpers"
 )
 
-// Invert route to matrix as a string in matrix format where the columns and rows are inverted
+// Invert route to get matrix as a string in matrix format where the columns and rows are inverted
 func Invert(responseWriter http.ResponseWriter, request *http.Request) {
 	_, matrix := helpers.GetMatrix("INVERT", responseWriter, request)
 	var response string

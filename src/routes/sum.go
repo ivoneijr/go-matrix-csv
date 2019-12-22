@@ -7,7 +7,7 @@ import (
 	"../helpers"
 )
 
-// Sum Route to sum of the integers in the matrix
+// Sum Route to sum all values in the matrix
 func Sum(responseWriter http.ResponseWriter, request *http.Request) {
 	matrix, _ := helpers.GetMatrix("SUM", responseWriter, request)
 

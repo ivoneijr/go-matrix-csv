@@ -9,7 +9,7 @@ import (
 	"../helpers"
 )
 
-// Flatten route to matrix as a 1 line string, with values separated by commas.
+// Flatten route to get matrix as a 1 line string, with values separated by commas.
 func Flatten(responseWriter http.ResponseWriter, request *http.Request) {
 	matrix, _ := helpers.GetMatrix("FLATTEN", responseWriter, request)
 	var buffer bytes.Buffer
