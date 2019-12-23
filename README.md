@@ -61,15 +61,7 @@ In `src/main.go` you will find a basic web server written in GoLang. It accepts 
 
 The input file to these functions is a matrix, of any dimension where the number of rows are equal to the number of columns (square). Each value is an integer, and there is no header row. matrix.csv is example valid input.
 
-##### Run web server
-
-```
-git clone https://github.com/ivoneijr/go-matrix-csv.git
-cd go-matrix-csv
-go run src/*.go
-```
-
-##### Compile and run
+#### Compile and run
 
 ```
 git clone https://github.com/ivoneijr/go-matrix-csv.git
@@ -77,6 +69,14 @@ cd go-matrix-csv
 go build -o ./build/main src/main.go
 
 ./build/main
+```
+
+##### Run web server using `go run`
+
+```
+git clone https://github.com/ivoneijr/go-matrix-csv.git
+cd go-matrix-csv
+go run src/*.go
 ```
 
 #### cURL tests
