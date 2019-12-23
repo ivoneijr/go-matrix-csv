@@ -7,6 +7,18 @@ import (
 	"strconv"
 )
 
+// OperationType enum for operation types
+type OperationType int
+
+// Operation types definition
+const (
+	SUM      OperationType = 0
+	FLATTEN  OperationType = 1
+	MULTIPLY OperationType = 2
+	INVERT   OperationType = 3
+	ECHO     OperationType = 4
+)
+
 // transpose return a reversed [][]string
 func transpose(slice [][]string) [][]string {
 	xl := len(slice[0])
@@ -66,7 +78,7 @@ func getRecords(w http.ResponseWriter, request *http.Request) ([][]string, error
 
 // GetMatrix return (<-chan int, [][]string) depending on the kind(type) param
 func GetMatrix(
-	kind string,
+	kind OperationType,
 	responseWriter http.ResponseWriter,
 	request *http.Request,
 ) (<-chan int, [][]string) {
@@ -74,10 +86,10 @@ func GetMatrix(
 
 	switch kind {
 
-	case "SUM", "FLATTEN", "MULTIPLY":
+	case SUM, FLATTEN, MULTIPLY:
 		return matrixToChannel(matrix), nil
 
-	case "INVERT":
+	case INVERT:
 		return nil, transpose(matrix)
 
 	default:

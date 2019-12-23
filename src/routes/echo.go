@@ -10,7 +10,7 @@ import (
 
 // Echo route to echo matrix as a string
 func Echo(responseWriter http.ResponseWriter, request *http.Request) {
-	_, matrix := helpers.GetMatrix("ECHO", responseWriter, request)
+	_, matrix := helpers.GetMatrix(helpers.ECHO, responseWriter, request)
 	var response string
 
 	for _, row := range matrix {
