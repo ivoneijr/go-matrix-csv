@@ -61,7 +61,7 @@ func getRecords(w http.ResponseWriter, request *http.Request) ([][]string, error
 	file, _, err := request.FormFile("file")
 
 	if err != nil {
-		w.Write([]byte(fmt.Sprintf("error:  %s, please send csv file in form-data 'file' key", err.Error())))
+		w.Write([]byte(fmt.Sprintf("error  %s, please send csv file in form-data 'file' key", err.Error())))
 		return nil, err
 	}
 
