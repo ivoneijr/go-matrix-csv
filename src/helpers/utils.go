@@ -78,13 +78,13 @@ func getRecords(w http.ResponseWriter, request *http.Request) ([][]string, error
 
 // GetMatrix return (<-chan int, [][]string) depending on the kind(type) param
 func GetMatrix(
-	kind OperationType,
+	operation OperationType,
 	responseWriter http.ResponseWriter,
 	request *http.Request,
 ) (<-chan int, [][]string) {
 	matrix, _ := getRecords(responseWriter, request)
 
-	switch kind {
+	switch operation {
 
 	case SUM, FLATTEN, MULTIPLY:
 		return matrixToChannel(matrix), nil
