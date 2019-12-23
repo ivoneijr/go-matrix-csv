@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-func Testtranspose(t *testing.T) {
+func TestTranspose(t *testing.T) {
 	matrix := [][]string{
 		{"1", "2", "3"},
 		{"4", "5", "6"},
@@ -19,11 +19,11 @@ func Testtranspose(t *testing.T) {
 		{"3", "6", "9"},
 	}
 
-	_, transposed := transpose(matrix)
+	var transposed = Transpose(matrix)
 
 	fmt.Println(transposed)
 
 	if !reflect.DeepEqual(expected, transposed) {
-		t.ErrorF("transponsed [][]string does not match with the expected")
+		t.Errorf("transponsed [][]string does not match with the expected")
 	}
 }

@@ -20,7 +20,7 @@ const (
 )
 
 // transpose return a reversed [][]string
-func transpose(slice [][]string) [][]string {
+func Transpose(slice [][]string) [][]string {
 	xl := len(slice[0])
 	yl := len(slice)
 	result := make([][]string, xl)
@@ -90,7 +90,7 @@ func GetMatrix(
 		return matrixToChannel(matrix), nil
 
 	case INVERT:
-		return nil, transpose(matrix)
+		return nil, Transpose(matrix)
 
 	default:
 		return nil, matrix

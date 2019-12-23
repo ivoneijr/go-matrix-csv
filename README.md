@@ -83,6 +83,8 @@ curl -F 'file={CSV_PATH}' "localhost:8080/multiply"
 
 `CSV_PATH` is your local csv file path
 
+You can use samples in /docs/sample 
+
 ### What we're looking for
 
 - The solution runs
