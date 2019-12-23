@@ -69,6 +69,16 @@ cd go-matrix-csv
 go run src/*.go
 ```
 
+##### Compile and run
+
+```
+git clone https://github.com/ivoneijr/go-matrix-csv.git
+cd go-matrix-csv
+go build -o ./build/main src/main.go
+
+./build/main
+```
+
 #### cURL tests
 
 ##### Request examples:
@@ -84,8 +94,8 @@ curl -F 'file={CSV_PATH}' "localhost:8080/multiply"
 `CSV_PATH` is your local csv file path
 
 Remember, the form-data key should be named as `file`.
- 
-You can use samples in `/docs/sample` 
+
+You can use samples in `/docs/sample`
 
 ### What we're looking for
 
