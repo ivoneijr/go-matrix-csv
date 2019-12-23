@@ -59,10 +59,9 @@ func matrixToChannel(matrix [][]string) <-chan int {
 // getRecords get and parse csv file (form-data) to [][]string
 func getRecords(w http.ResponseWriter, request *http.Request) ([][]string, error) {
 	file, _, err := request.FormFile("file")
-	defer file.Close()
 
 	if err != nil {
-		w.Write([]byte(fmt.Sprintf("error %s", err.Error())))
+		w.Write([]byte(fmt.Sprintf("error:  %s, please send csv file in form-data 'file' key", err.Error())))
 		return nil, err
 	}
 
@@ -73,6 +72,7 @@ func getRecords(w http.ResponseWriter, request *http.Request) ([][]string, error
 		return nil, err
 	}
 
+	defer file.Close()
 	return records, nil
 }
 
