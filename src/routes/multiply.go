@@ -2,7 +2,9 @@ package routes
 
 import (
 	"fmt"
+	"math/big"
 	"net/http"
+	"strconv"
 
 	"../helpers"
 )
@@ -11,9 +13,12 @@ import (
 func Multiply(responseWriter http.ResponseWriter, request *http.Request) {
 	matrix, _ := helpers.GetMatrix(helpers.MULTIPLY, responseWriter, request)
 
-	count := 1
+	count, _ := new(big.Int).SetString("1", 10)
+
 	for n := range matrix {
-		count *= n
+		nString := strconv.FormatInt(int64(n), 10)
+		nBig, _ := new(big.Int).SetString(nString, 10)
+		count = count.Mul(count, nBig)
 	}
 
 	fmt.Fprint(responseWriter, count)
