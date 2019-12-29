@@ -65,6 +65,8 @@ func getRecords(w http.ResponseWriter, request *http.Request) ([][]string, error
 		return nil, err
 	}
 
+	defer file.Close()
+
 	records, err := csv.NewReader(file).ReadAll()
 
 	if err != nil {
@@ -72,7 +74,6 @@ func getRecords(w http.ResponseWriter, request *http.Request) ([][]string, error
 		return nil, err
 	}
 
-	defer file.Close()
 	return records, nil
 }
 
