@@ -3,6 +3,7 @@ package helpers
 import (
 	"encoding/csv"
 	"fmt"
+	"math/big"
 	"net/http"
 	"strconv"
 )
@@ -18,6 +19,14 @@ const (
 	INVERT   OperationType = 3
 	ECHO     OperationType = 4
 )
+
+// IntToBigInt return a new big.Int based on int param
+func IntToBigInt(n int) *big.Int {
+	nString := strconv.FormatInt(int64(n), 10)
+	nBig, _ := new(big.Int).SetString(nString, 10)
+
+	return nBig
+}
 
 // transpose return a reversed [][]string
 func Transpose(slice [][]string) [][]string {
