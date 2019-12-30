@@ -6,6 +6,7 @@ import (
 	"math/big"
 	"net/http"
 	"strconv"
+	"sync"
 )
 
 // OperationType enum for operation types
@@ -28,23 +29,37 @@ func IntToBigInt(n int) *big.Int {
 	return nBig
 }
 
-// transpose return a reversed [][]string
-func Transpose(slice [][]string) [][]string {
-	xl := len(slice[0])
-	yl := len(slice)
-	result := make([][]string, xl)
+// Transpose return a reversed matrix [][]string
+func Transpose(matrix [][]string) [][]string {
+	qtColumns, qtRows := len(matrix[0]), len(matrix)
+	transposed := make([][]string, qtColumns)
+	wg := sync.WaitGroup{}
 
-	for i := range result {
-		result[i] = make([]string, yl)
+	for i := range transposed {
+		transposed[i] = make([]string, qtRows)
 	}
 
-	for i := 0; i < xl; i++ {
-		for j := 0; j < yl; j++ {
-			result[i][j] = slice[j][i]
-		}
+	for i := 0; i < qtColumns; i++ {
+		wg.Add(1)
+
+		go func(i int) {
+			defer wg.Done()
+
+			for j := 0; j < qtRows; j++ {
+				wg.Add(1)
+
+				go func(i, j int) {
+					defer wg.Done()
+
+					transposed[i][j] = matrix[j][i]
+				}(i, j)
+			}
+		}(i)
 	}
 
-	return result
+	wg.Wait()
+
+	return transposed
 }
 
 // matrixToChannel

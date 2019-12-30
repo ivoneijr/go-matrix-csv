@@ -1,10 +1,11 @@
 package routes
 
 import (
-	"../helpers"
 	"fmt"
 	"net/http"
 	"sync"
+
+	"../helpers"
 )
 
 // Sum Route to sum all values in the matrix
