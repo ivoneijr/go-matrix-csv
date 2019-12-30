@@ -11,7 +11,7 @@ import (
 	"testing"
 )
 
-func TestEcho(t *testing.T) {
+func TestFlatten(t *testing.T) {
 	path, err := getCSVPath()
 	if err != nil {
 		t.Fatal(err)
@@ -35,19 +35,19 @@ func TestEcho(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	req, err := http.NewRequest("POST", "/echo", body)
+	req, err := http.NewRequest("POST", "/flatten", body)
 	req.Header.Set("Content-Type", writer.FormDataContentType())
 
 	//ResponseRecorder (which satisfies http.ResponseWriter) to record the response.
 	rr := httptest.NewRecorder()
-	handler := http.HandlerFunc(Echo)
+	handler := http.HandlerFunc(Flatten)
 	handler.ServeHTTP(rr, req)
 
 	response := rr.Body.String()
-	expected := "1,2,3\n4,5,6\n7,8,9\n"
+	expected := "1,2,3,4,5,6,7,8,9"
 
 	if response != expected {
-		t.Errorf("Echo handler returned wrong content got %v want %v",
+		t.Errorf("Flatten handler returned wrong content got %v want %v",
 			response, expected)
 	}
 }
