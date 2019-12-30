@@ -9,6 +9,7 @@ import (
 
 // main function to handle routes
 func main() {
+	http.HandleFunc("/health-check", routes.HealthCheckHandler)
 	http.HandleFunc("/echo", routes.Echo)
 	http.HandleFunc("/invert", routes.Invert)
 	http.HandleFunc("/flatten", routes.Flatten)
