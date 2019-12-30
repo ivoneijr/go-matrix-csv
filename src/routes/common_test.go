@@ -47,10 +47,12 @@ func getResponseFor(params handlerParams) (string, error) {
 
 	body := &bytes.Buffer{}
 	writer := multipart.NewWriter(body)
+
 	part, err := writer.CreateFormFile("file", filepath.Base(path))
 	if err != nil {
 		return "", err
 	}
+
 	_, err = io.Copy(part, file)
 	err = writer.Close()
 	if err != nil {
