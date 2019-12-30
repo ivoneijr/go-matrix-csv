@@ -46,6 +46,10 @@ func TestMatrixToChannel(t *testing.T) {
 	chResult := []int{}
 	expected := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
 
+	if reflect.TypeOf(ch).String() != "<-chan int" {
+		t.Errorf("matrixToChannel does not return <-chan int")
+	}
+
 	for n := range ch {
 		chResult = append(chResult, n)
 	}
