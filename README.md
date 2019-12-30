@@ -105,3 +105,5 @@ You can use samples in `/docs/sample`
 - The code is reasonably documented
 - The code is tested
 - The code is robust and handles invalid input and provides helpful error messages
+
+Have fun 🤓
