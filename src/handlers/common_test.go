@@ -1,4 +1,4 @@
-package routes
+package handlers
 
 import (
 	"bytes"
@@ -26,7 +26,7 @@ func getCSVPath() (string, error) {
 		return "", nil
 	}
 
-	splitted := strings.Split(dir, "/src/routes")[0]
+	splitted := strings.Split(dir, "/src/handlers")[0]
 	path := splitted + "/docs/sample/matrix.csv"
 
 	return path, nil
