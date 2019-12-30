@@ -7,6 +7,8 @@ import (
 )
 
 func TestIntToBigInt(t *testing.T) {
+	t.Parallel()
+
 	bigInt := IntToBigInt(1)
 	expected, _ := new(big.Int).SetString("1", 10)
 
@@ -16,6 +18,8 @@ func TestIntToBigInt(t *testing.T) {
 }
 
 func TestTranspose(t *testing.T) {
+	t.Parallel()
+
 	matrix := [][]string{
 		{"1", "2", "3"},
 		{"4", "5", "6"},
@@ -36,6 +40,8 @@ func TestTranspose(t *testing.T) {
 }
 
 func TestMatrixToChannel(t *testing.T) {
+	t.Parallel()
+
 	matrix := [][]string{
 		{"1", "2", "3"},
 		{"4", "5", "6"},

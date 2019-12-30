@@ -3,6 +3,7 @@ package handlers
 import "testing"
 
 func TestAllHandlers(t *testing.T) {
+	t.Parallel()
 
 	suite := []struct {
 		params   handlerParams
