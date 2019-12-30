@@ -97,6 +97,10 @@ Remember, the form-data key should be named as `file`.
 
 You can use samples in `/docs/sample`
 
+#### Coverage
+
+You can see coverage test report runing `go tool cover -html=coverage/report.out` inside project file (go-matrix-csv)
+
 ### What we're looking for
 
 - The solution runs
