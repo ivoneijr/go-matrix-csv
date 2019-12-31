@@ -101,7 +101,7 @@ func getRecords(w http.ResponseWriter, request *http.Request) ([][]string, error
 	return records, nil
 }
 
-// GetMatrix return (<-chan int, [][]string) depending on the kind(type) param
+// GetMatrix return (<-chan int, [][]string) depending on Operation type param
 func GetMatrix(
 	operation OperationType,
 	responseWriter http.ResponseWriter,
