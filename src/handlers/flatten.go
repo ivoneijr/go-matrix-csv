@@ -11,10 +11,10 @@ import (
 
 // Flatten route to get matrix as a 1 line string, with values separated by commas.
 func Flatten(responseWriter http.ResponseWriter, request *http.Request) {
-	matrix, _ := helpers.GetMatrix(helpers.FLATTEN, responseWriter, request)
+	chMatrix, _ := helpers.GetMatrix(helpers.FLATTEN, responseWriter, request)
 	var buffer bytes.Buffer
 
-	for n := range matrix {
+	for n := range chMatrix {
 		buffer.WriteString(fmt.Sprintf("%d,", n))
 	}
 
